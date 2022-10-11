@@ -11,6 +11,8 @@ service:
 image:
   repository: techtrends
   tag: latest
+  pullPolicy: IfNotPresent
+  dockerRegistry: yahmed786222
 
 replicaCount: 1
 
