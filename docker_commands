@@ -1,0 +1,42 @@
+## Docker commands used to build the application 
+docker build -t techtrends . 
+
+## Docker commands used to run the application
+docker run -d -p 7111:3111 techtrends
+
+## Docker commands used to get the application logs
+docker logs <conatinerId>
+docker logs 01b001cca6be
+
+## Logs from the container running the TechTrends application
+yashminahmed@Yashmins-MacBook-Air techtrends % docker logs 01b001cca6be
+ * Serving Flask app 'app' (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+WARNING:werkzeug:2022-10-11 11:04:19,862,  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+INFO:werkzeug:2022-10-11 11:04:19,862,  * Running on http://172.17.0.2:3111/ (Press CTRL+C to quit)
+INFO:werkzeug:2022-10-11 11:06:04,732, 127.0.0.1 - - [11/Oct/2022 11:06:04] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:2022-10-11 11:06:04,746, 127.0.0.1 - - [11/Oct/2022 11:06:04] "GET /static/css/main.css HTTP/1.1" 200 -
+INFO:werkzeug:2022-10-11 11:06:04,804, 127.0.0.1 - - [11/Oct/2022 11:06:04] "GET /favicon.ico HTTP/1.1" 404 -
+INFO:werkzeug:2022-10-11 11:06:10,271, 127.0.0.1 - - [11/Oct/2022 11:06:10] "GET /1 HTTP/1.1" 200 -
+INFO:werkzeug:2022-10-11 11:06:10,294, 127.0.0.1 - - [11/Oct/2022 11:06:10] "GET /static/css/main.css HTTP/1.1" 304 -
+INFO:werkzeug:2022-10-11 11:06:11,998, 127.0.0.1 - - [11/Oct/2022 11:06:11] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:2022-10-11 11:06:12,004, 127.0.0.1 - - [11/Oct/2022 11:06:12] "GET /static/css/main.css HTTP/1.1" 304 -
+INFO:werkzeug:2022-10-11 11:06:12,018, 127.0.0.1 - - [11/Oct/2022 11:06:12] "GET /static/css/main.css HTTP/1.1" 304 -
+INFO:werkzeug:2022-10-11 11:06:13,739, 127.0.0.1 - - [11/Oct/2022 11:06:13] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:2022-10-11 11:06:13,743, 127.0.0.1 - - [11/Oct/2022 11:06:13] "GET /static/css/main.css HTTP/1.1" 304 -
+INFO:werkzeug:2022-10-11 11:06:13,749, 127.0.0.1 - - [11/Oct/2022 11:06:13] "GET /static/css/main.css HTTP/1.1" 304 -
+INFO:app:2022-10-11 11:06:17,073, Status request successfull
+DEBUG:app:2022-10-11 11:06:17,073, DEBUG message
+INFO:werkzeug:2022-10-11 11:06:17,073, 127.0.0.1 - - [11/Oct/2022 11:06:17] "GET /healthz HTTP/1.1" 200 -
+INFO:app:2022-10-11 11:06:19,593, Status request successfull
+DEBUG:app:2022-10-11 11:06:19,593, DEBUG message
+INFO:werkzeug:2022-10-11 11:06:19,593, 127.0.0.1 - - [11/Oct/2022 11:06:19] "GET /healthz HTTP/1.1" 200 -
+INFO:werkzeug:2022-10-11 11:06:20,525, 127.0.0.1 - - [11/Oct/2022 11:06:20] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:2022-10-11 11:06:20,529, 127.0.0.1 - - [11/Oct/2022 11:06:20] "GET /static/css/main.css HTTP/1.1" 304 -
+INFO:werkzeug:2022-10-11 11:06:20,535, 127.0.0.1 - - [11/Oct/2022 11:06:20] "GET /static/css/main.css HTTP/1.1" 304 -
+INFO:app:2022-10-11 11:06:22,575, Metrics request successfull
+INFO:werkzeug:2022-10-11 11:06:22,575, 127.0.0.1 - - [11/Oct/2022 11:06:22] "GET /metrics HTTP/1.1" 200 -
