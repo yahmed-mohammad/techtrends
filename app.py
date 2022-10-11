@@ -1,4 +1,5 @@
 import sqlite3
+import logging
 
 from flask import Flask, jsonify, json, render_template, request, url_for, redirect, flash
 from werkzeug.exceptions import abort
@@ -29,6 +30,27 @@ def index():
     posts = connection.execute('SELECT * FROM posts').fetchall()
     connection.close()
     return render_template('index.html', posts=posts)
+
+@app.route('/healthz')
+def healthcheck():
+    response = app.response_class(
+            response=json.dumps({"result":"OK - healthy"}),
+            status=200,
+            mimetype='application/json'
+    )
+    app.logger.info('Status request successfull')
+    app.logger.debug('DEBUG message')
+    return response
+
+@app.route('/metrics')
+def metrics():
+    response = app.response_class(
+            response=json.dumps({"status":"success","code":0,"data":{"UserCount":140,"UserCountActive":23}}),
+            status=200,
+            mimetype='application/json'
+    )
+    app.logger.info('Metrics request successfull')
+    return response
 
 # Define how each individual article is rendered 
 # If the post ID is not found a 404 page is shown
@@ -67,4 +89,5 @@ def create():
 
 # start the application on port 3111
 if __name__ == "__main__":
+   logging.basicConfig(filename='app.log',level=logging.DEBUG)
    app.run(host='0.0.0.0', port='3111')
